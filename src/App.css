@@ -1,38 +1,151 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #1b1b1b;
+  border-radius: 5px;
+  border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.score-board {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.count, .high-score, .game-over-score, .game-over-high-score {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.high-score {
+  font-size: 16px;
+}
+
+.game-over-score, .game-over-high-score {
+  font-size: 16px;
+  z-index: 2; 
+}
+
+button {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+}
+
+button:hover {
+  background: #218838;
+}
+
+button:focus {
+  outline: 2px solid #218838;
+}
+
+.text {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+  z-index: 2;
+}
+
+.game-over {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff0000;
+  margin-bottom: 20px;
+  z-index: 2; 
+}
+
+.game-over-score, .game-over-high-score {
+  font-size: 18px;
+}
+
+.controls {
+  display: none;   
+  bottom: 10px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.control-btn {  
+  background: #218838;
+  color: #fff;
+  border: none;
+  border-radius:10px;
+  padding: 15px; 
+  font-size: 16px; 
+  cursor: pointer;
+  outline: none;
+  margin: 5px;
+  width: 50px; 
+  height: 50px; 
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.control-btn:hover {
+  background: #28a745;
+}
+
+.control-row {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+  .control-btn {
+    display: flex;
+    width: 40px; 
+    height: 40px; 
+    padding: 10px;
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    position: relative;
+    width: 100vw;
+    height: 400px;
+    background: #1b1b1b;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+  }
+  .controls {
+    display: flex;
+  }
+  .control-btn {
+    display: flex;
+    width: 60px; 
+    height: 60px; 
+    padding: 10px;
+    font-size: 24px;
   }
 }
