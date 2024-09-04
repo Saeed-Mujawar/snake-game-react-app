@@ -109,6 +109,7 @@ button:focus {
 .control-row {
   display: flex;
   justify-content: center;
+  gap: 50px;
 }
 
 @media (max-width: 768px) {
@@ -121,6 +122,10 @@ button:focus {
     height: 40px; 
     padding: 10px;
     font-size: 14px; 
+  }
+  .control-row {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -147,5 +152,10 @@ button:focus {
     height: 60px; 
     padding: 10px;
     font-size: 24px;
+  }
+  .control-row {
+    display: flex;
+    justify-content: center;
+    
   }
 }
