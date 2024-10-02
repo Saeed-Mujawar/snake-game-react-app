@@ -28,7 +28,9 @@ function App() {
   const [foodPosition, setFoodPosition] = useState(randomFoodPosition);
   const [isStarted, setIsStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(
+    () => Number(localStorage.getItem("highScore")) || 0
+  );
   const playgroundRef = useRef();
 
   const move = useCallback(() => {
@@ -59,6 +61,7 @@ function App() {
         setGameOver(true);
         if (snake.length - 3 > highScore) {
           setHighScore(snake.length - 3);
+          localStorage.setItem("highScore", snake.length - 3);
         }
         return prevSnake; // Do not update snake state on game over
       }
@@ -79,6 +82,7 @@ function App() {
         setGameOver(true);
         if (snake.length - 3 > highScore) {
           setHighScore(snake.length - 3);
+          localStorage.setItem("highScore", snake.length - 3);
         }
         return prevSnake; // Do not update snake state on game over
       }
@@ -170,7 +174,6 @@ function App() {
 
         <Snake snake={snake} />
         {!gameOver && <Food position={foodPosition} />}
-
       </div>
       <div className="controls">
         <button className="control-btn" onClick={() => handleArrowButtonClick("ArrowUp")}>↑</button>
@@ -181,7 +184,6 @@ function App() {
         <button className="control-btn" onClick={() => handleArrowButtonClick("ArrowDown")}>↓</button>
       </div>
     </>
-
   );
 }
 
